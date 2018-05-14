@@ -88,10 +88,6 @@ def studyMode(numberCorrect, numberIncorrect):
                 numberIncorrect += 1
             elif answer.upper() == 'B':
                 numberCorrect += 1
-            print()
-            print(feedback)
-            input('Press enter for the next question')
-            print()
         else:
             print ('A - ' + correctAnswer)
             print ('B - ' + wrongAnswer)
@@ -101,10 +97,10 @@ def studyMode(numberCorrect, numberIncorrect):
                 numberCorrect += 1
             elif answer.upper() == 'B':
                 numberIncorrect += 1
-            print()
-            print(feedback)
-            input('Press enter for the next question')
-            print()
+        print()
+        print(feedback)
+        input('Press enter for the next question')
+        print()
     studyResults = print(userName + ' you got ' + str(numberCorrect) + ' right and ' + str(numberIncorrect) + ' wrong.')
     print(studyResults)
 
