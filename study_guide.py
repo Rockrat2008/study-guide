@@ -57,7 +57,7 @@ def examMode(numberCorrect, numberIncorrect):
             print ('A - ' + wrongAnswer)
             print ('B - ' + correctAnswer)
             print ()
-            answer = input('Enter your answer:  ')
+            answer = getAnswer()
             if answer.upper() == 'A':
                 numberIncorrect += 1
             elif answer.upper() == 'B':
@@ -66,7 +66,7 @@ def examMode(numberCorrect, numberIncorrect):
             print ('A - ' + correctAnswer)
             print ('B - ' + wrongAnswer)
             print()
-            answer = input('Enter your answer:  ')
+            answer = getAnswer()
             if answer.upper() == 'A':
                 numberCorrect += 1
             elif answer.upper() == 'B':
@@ -83,7 +83,7 @@ def studyMode(numberCorrect, numberIncorrect):
             print ('A - ' + wrongAnswer)
             print ('B - ' + correctAnswer)
             print ()
-            answer = input('Enter your answer:  ')
+            answer = getAnswer()
             if answer.upper() == 'A':
                 numberIncorrect += 1
             elif answer.upper() == 'B':
@@ -92,7 +92,7 @@ def studyMode(numberCorrect, numberIncorrect):
             print ('A - ' + correctAnswer)
             print ('B - ' + wrongAnswer)
             print ()
-            answer = input('Enter your answer:  ')
+            answer = getAnswer()
             if answer.upper() == 'A':
                 numberCorrect += 1
             elif answer.upper() == 'B':
@@ -103,5 +103,19 @@ def studyMode(numberCorrect, numberIncorrect):
         print()
     studyResults = print(userName + ' you got ' + str(numberCorrect) + ' right and ' + str(numberIncorrect) + ' wrong.')
     print(studyResults)
+
+
+def getAnswer():
+    testIsOver = False
+    while not testIsOver:
+        answer = input('Enter your answer:  ')
+        answer = answer.upper()
+        if len(answer) != 1:
+            print('You must enter "A" or "B" as your answer:  ')
+        elif answer not in "AB":
+            print('You must enter "A" or "B" as your answer:  ')
+        else:
+            return answer
+
 
 mainMenu()
