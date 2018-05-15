@@ -83,13 +83,7 @@ def examMode(numberCorrect, numberIncorrect):
                 numberIncorrect += 1
     testResults = userName + ' you got ' + str(numberCorrect) + ' right and ' + str(numberIncorrect) + ' wrong.'
     print(testResults)
-    dateTested = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
-    results = open('examModeResults.txt', 'a')
-    results.write(dateTested+'\n')
-    results.write(testResults+'\n')
-    results.write('\n')
-    results.close()
-    mainMenu()
+    saveResults('examModeResults.txt', testResults)
         
 
 #  Study mode function tests the users knowledgte and provides feedback on missed questions.  Results are stored in a file
@@ -125,13 +119,7 @@ def studyMode(numberCorrect, numberIncorrect):
         print()
     studyResults = userName + ' you got ' + str(numberCorrect) + ' right and ' + str(numberIncorrect) + ' wrong.'
     print(studyResults)
-    dateTested = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
-    results = open('studyModeResults.txt', 'a')
-    results.write(dateTested + '\n')
-    results.write(studyResults + '\n')
-    results.write('\n')
-    results.close()
-    mainMenu()
+    saveResults('studyModeResults.txt', studyResults)
 
 
 #  The get answer function is called from both exam and study mode and validates the users answer to confirm it is only a valid choice
@@ -157,5 +145,17 @@ def viewResults(resultsFile):
     results.close()
     mainMenu()
     
+
+#  This function saves the user results to a file
+def saveResults(resultsFile, scores):
+    dateTested = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
+    results = open(resultsFile, 'a')
+    results.write(dateTested + '\n')
+    results.write(scores + '\n')
+    results.write('\n')
+    results.close()
+    input ('Press enter to return to the main menu.')
+    mainMenu()
+
 
 mainMenu()
