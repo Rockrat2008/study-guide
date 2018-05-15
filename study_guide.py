@@ -81,7 +81,8 @@ def examMode(numberCorrect, numberIncorrect):
                 numberCorrect += 1
             elif answer.upper() == 'B':
                 numberIncorrect += 1
-    testResults = userName + ' you got ' + str(numberCorrect) + ' right and ' + str(numberIncorrect) + ' wrong.'
+    testScore = numberCorrect/(numberCorrect+numberIncorrect)*100
+    testResults = userName + ' you got ' + str(numberCorrect) + ' right and ' + str(numberIncorrect) + ' wrong.  Your score is:  ' + str(testScore) + '%.'
     print(testResults)
     saveResults('examModeResults.txt', testResults)
         
@@ -117,7 +118,8 @@ def studyMode(numberCorrect, numberIncorrect):
         print()
         input('Press enter for the next question')
         print()
-    studyResults = userName + ' you got ' + str(numberCorrect) + ' right and ' + str(numberIncorrect) + ' wrong.'
+    testScore = numberCorrect/(numberCorrect+numberIncorrect)*100
+    studyResults = userName + ' you got ' + str(numberCorrect) + ' right and ' + str(numberIncorrect) + ' wrong.  Your score is:  ' +str(testScore) + '%.'
     print(studyResults)
     saveResults('studyModeResults.txt', studyResults)
 
